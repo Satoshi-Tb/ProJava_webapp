@@ -41,11 +41,12 @@ public class HomeRestController {
 
 
     @RequestMapping("/hello")
-    String hello() {
-        return """
+    ResponseEntity<String>  hello() {
+        String response =  """
                 Hello.
                 It works!
                     現在時刻は%sです。
                 """.formatted(LocalDateTime.now());
+        return new ResponseEntity<String>(response, HttpStatus.OK);
     }
 }
