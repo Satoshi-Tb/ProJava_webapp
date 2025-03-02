@@ -39,8 +39,12 @@ public class HomeController {
         String id = UUID.randomUUID().toString().substring(0, 8);
         var item = new TaskItem(id, task, deadline, false);
         dao.add(item);
-
         return "redirect:/list";
     }
 
+    @GetMapping("/delete")
+    String deleteItem(@RequestParam("id") String id) {
+        dao.delete(id);
+        return "redirect:/list";
+    }
 }
