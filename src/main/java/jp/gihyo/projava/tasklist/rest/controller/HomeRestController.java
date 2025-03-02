@@ -1,4 +1,4 @@
-package jp.gihyo.projava.tasklist;
+package jp.gihyo.projava.tasklist.rest.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
