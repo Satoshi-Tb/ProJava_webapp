@@ -1,5 +1,6 @@
-package jp.gihyo.projava.tasklist;
+package jp.gihyo.projava.tasklist.controller;
 
+import jp.gihyo.projava.tasklist.model.TaskListDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
