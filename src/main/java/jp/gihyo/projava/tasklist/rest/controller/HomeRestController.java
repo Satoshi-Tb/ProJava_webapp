@@ -49,4 +49,20 @@ public class HomeRestController {
                 """.formatted(LocalDateTime.now());
         return new ResponseEntity<String>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/delete")
+    ResponseEntity<Integer> deleteItem(@RequestParam("id") String id) {
+        int count = dao.delete(id);
+        return new ResponseEntity<Integer>(count, HttpStatus.OK);
+    }
+
+    @GetMapping("/update")
+    ResponseEntity<Integer>  updateItem(@RequestParam("id") String id,
+                      @RequestParam("task") String task,
+                      @RequestParam("deadline") String deadline,
+                      @RequestParam("done") boolean done) {
+        var taskItem = new HomeController.TaskItem(id, task, deadline, done);
+        int count = dao.update(taskItem);
+        return new ResponseEntity<Integer>(count, HttpStatus.OK);
+    }
 }
