@@ -43,4 +43,12 @@ public class TaskListDao {
     public int delete(String id) {
         return jdbcTemplate.update("DELETE FROM tasklist WHERE id = ?", id);
     }
+
+    public int update(HomeController.TaskItem taskItem) {
+        return jdbcTemplate.update("UPDATE tasklist SET task = ?, deadline = ?, done = ? WHERE id = ?",
+                taskItem.task(),
+                taskItem.deadline(),
+                taskItem.done(),
+                taskItem.id());
+    }
 }
